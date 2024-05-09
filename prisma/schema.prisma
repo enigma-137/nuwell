@@ -1,0 +1,20 @@
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Assistant {
+  id String @id @default(uuid())
+  assistantId String @unique
+}
+
+model UserThread{
+  id String @id @default(uuid())
+  userId String @unique
+  threadId String 
+  createsAt DateTime @default(now())
+}
